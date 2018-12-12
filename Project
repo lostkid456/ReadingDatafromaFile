@@ -1,0 +1,58 @@
+# Reading Data from a File
+# Johnathan Zhao, 12/4/18
+
+# Open the file (must be in same directory as script)
+text_file = open('list_of_numbers_1.txt','r')
+
+# Make a string list from the lines of the text file
+file_data = text_file.readlines()
+
+# Close the file (Always close the file!)
+text_file.close()
+
+# Create a copy of the file_data to work on
+numbers = file_data
+
+# Create a list of floats from the list of strings
+for i in range(0,len(numbers)):
+	numbers[i] = float(numbers[i])
+	
+# Now work with the list of floats
+print(numbers)
+
+#Creates a list for points 
+points=[]
+
+#Create a list for X values
+x=[]
+
+#Create a list for Y values 
+y=[]
+
+#Checks the list of numbers and puts the number accordingly to the X-list or the Y-list
+for i in range(0,len(numbers)):
+    if(i%2==0):
+        x.append(float(numbers[i]))
+    else:
+        y.append(float(numbers[i]))
+        
+#Creates the list which contain the X-value with the correpsonding Y-value
+for k in range(0,len(x)):
+    while k<=len(x)-1:
+        L=[]
+        L.append(x[k])
+        L.append(y[k])
+        k+=1
+        points.append(L)
+    if k==len(x):
+        break
+
+#Prints out the list of (X,Y) points
+print(points)
+
+#Prints out the list of X-list and Y-list 
+print(x,y)
+
+
+
+
